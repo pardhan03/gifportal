@@ -6,13 +6,13 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-gifportal = "Nd8TPMpoFoLWN7eiZ6Dd8TC6GPmi8RRTbozF6ez3JZavHCh9443MGH85Ym35HArFH7KhwZySGXHquGrnLhfVxQN"
+gifportal = "HuGk61mTDfo6FzvrEUCcAkF7yFiGzAimkrAZNTvNi1C1"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]

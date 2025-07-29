@@ -25,8 +25,19 @@ const main = async () => {
 
   console.log("Transaction signature:", tx);
 
-  const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+  let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log("GIFs Count:", account.totalGifs.toString());
+
+  await program.methods.addGif()
+  .accounts("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjh4aTJqZGl2MTB2ZzcxdG1tNmk5YXY5aDN3YjYxZzkwY2Fmcmh0biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tsX3YMWYzDPjAARfeg/giphy.gif",{
+    baseAccount: baseAccount.publicKey,
+    user: provider.wallet.publicKey,
+  })
+  .rpc();
+
+  account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+  console.log("Updated GIFs Count:", account.totalGifs.toString());
+  console.log("Updated GIFs List:", account.gifList);
 }
 
 const runMain = async () => {
